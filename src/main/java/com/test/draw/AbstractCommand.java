@@ -27,8 +27,7 @@ public abstract class AbstractCommand implements Command {
 	}
 
 	private static final String OS = System.getProperty("os.name");
-	private static final String LINE_SEPERATOR = System
-			.getProperty("line.separator");
+	private static final String LINE_SEPERATOR = System.getProperty("line.separator");
 
 	/**
 	 * @return the width
@@ -70,11 +69,9 @@ public abstract class AbstractCommand implements Command {
 			// horizontal line
 			Arrays.fill(shape[y1], x1, x2 + 1, drawChar);
 		} else {
-			// we have a slope
-			double slope = (double) (y2 - y1) / (double) (x2 - x1);
-			for (int i = y1; i <= y2; i++) {
-				shape[i][(int) Math.ceil(x1 + (slope * i))] = drawChar;
-			}
+			
+			throw new InValidParameterException(
+				"Points are inValid co-ordinates");
 		}
 	}
 
@@ -92,8 +89,9 @@ public abstract class AbstractCommand implements Command {
 
 	protected void validate(int x1, int y1, int x2, int y2)
 			throws InValidParameterException {
-		if (x1 >= 1 && y1 >= 1 && x2 >= 1 && y2 >= 1 && x1 < width
-				&& y1 < height && x2 < width && y2 < height && x1 <= x2
+		if (x1 >= 1 && y1 >= 1 && x2 >= 1 && y2 >= 1 
+				&& x1 <= width && y1 <= height && x2 <= width && y2 <= height 
+				&& x1 <= x2
 				&& y1 <= y2) {
 			return;
 		}
@@ -108,10 +106,9 @@ public abstract class AbstractCommand implements Command {
 	protected final void clearConsole() {
 		try {
 			if (OS.contains("Windows")) {
-				new ProcessBuilder("cmd", "/c", "cls").inheritIO().start()
-						.waitFor();
+				//new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 			} else {
-				System.out.print("\033\143");
+				//System.out.print("\033\143");
 			}
 		} catch (final Exception e) {
 			System.err.println(e.getMessage());

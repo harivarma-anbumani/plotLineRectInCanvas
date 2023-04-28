@@ -18,7 +18,7 @@ public class Canvas extends AbstractCommand {
 		int width = Integer.parseInt(params.get(0));
 		int height = Integer.parseInt(params.get(1));
 
-		width = width+1;
+		//width = width+1;
 		
 
 		// set properties for canvas
@@ -35,25 +35,26 @@ public class Canvas extends AbstractCommand {
 	}
 
 	private String getCanvas() {
-		shape = new char[height + 2][width];
+		shape = new char[height + 2][width + 2];
 		// Draw upper border
-		draw(0, 0, width -1, 0, '-');
+		draw(0, 0, width + 1, 0, '-');
 		// Draw left border
 		draw(0, 1, 0, height + 1, '|');
 		// Draw right border
-		draw(width-1, 1, width-1 , height + 1, '|');
+		draw(width + 1, 1, width + 1, height + 1, '|');
 		// Draw lower border
-		draw(0, height + 1, width-1 , height + 1, '-');
+		draw(0, height + 1, width + 1, height + 1, '-');
 
 		return getShapeAsString();
 	}
+
 
 	// local test
 	public static void main(String[] args) throws InValidParameterException {
 		Canvas canvas = new Canvas();
 
 		List<String> params = new ArrayList<>();
-		params.add("20");
+		params.add("3");
 		params.add("5");
 
 		canvas.execute(params);

@@ -12,12 +12,11 @@ public class PlotLineRectInCanvasApplication {
 
 	private CommandContext commandContext;
 
-	public static final String regexPattern = "[a-zA-Z]{1}(\\s\\d+)*(\\s[a-zA-z]{1})?+";
+	public static final String regexPattern = "[a-zA-Z]{1}(\\s\\d+)*";
 	
 
 	public static void main(String[] args) {
 
-		
 		PlotLineRectInCanvasApplication plotLineRectInCanvasApplication = new PlotLineRectInCanvasApplication();
 		
 		Scanner scanner = null;
@@ -57,7 +56,7 @@ public class PlotLineRectInCanvasApplication {
 
 		if (commandContext == null) {
 
-			//System.out.println("commandContext ----> "+ commandContext );
+			//System.out.println("commandContext 1----> "+ commandContext );
 
 			if (!(input.getValidShapeType().equals(ValidShapeType.CANVAS) || input.getValidShapeType().equals(ValidShapeType.QUIT))) {
 				throw new InValidParameterException(
@@ -67,7 +66,7 @@ public class PlotLineRectInCanvasApplication {
 				//System.out.println("commandContext 3 ----> "+ commandContext );
 			}
 		}
-
+		
 		commandContext.setCommand(input);
 		commandContext.executeCommand(input.getParams());
 	}
