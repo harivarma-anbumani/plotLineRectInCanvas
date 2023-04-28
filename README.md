@@ -8,8 +8,8 @@ The program should support the following commands:
   3. **R x1 y1 x2 y2** Should create a new rectangle, whose upper left corner is (x1,y1) and lower right corner is (x2,y2). Horizontal and vertical lines will be drawn using the 'x' character.
   4. **Q** Should quit the program.
 
-Deliverables
-------------
+# Build & Execute
+------------------
 
 A copy of the source code can be clone from the below github repository,
 
@@ -23,4 +23,10 @@ Instructions on how to build/execute it:
   </br>
   
   Execue the code: **java -jar target\app-0.0.1-SNAPSHOT.jar**
+
+# Output
+--------
+![image](https://user-images.githubusercontent.com/80431659/235198336-d2884a95-48d3-4090-9d21-77ae7e1ceead.png)
+
+
 
